@@ -1,0 +1,131 @@
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex b83d222..7974758 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -1 +1,19 @@[m
+ /target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[32m+[m[32m/target/[m
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mindex 7c03678..93b7348 100644[m
+[1m--- a/pom.xml[m
+[1m+++ b/pom.xml[m
+[36m@@ -5,6 +5,7 @@[m
+   <version>1.0</version>[m
+   <build>[m
+     <sourceDirectory>src</sourceDirectory>[m
+[32m+[m[41m    [m
+     <plugins>       [m
+       <plugin>[m
+         <groupId>org.apache.maven.plugins</groupId>[m
+[36m@@ -12,48 +13,52 @@[m
+         <version>2.19.1</version>[m
+         <configuration>[m
+           <systemPropertyVariables>[m
+[31m-        [m
+[31m-                <one>1</one>[m
+[31m-                <two>2</two>[m
+[31m-[m
+[31m- [m
+[32m+[m[32m           <platformName>${value}</platformName>[m
+[32m+[m			[32m<platformVersion>${value}</platformVersion>[m
+[32m+[m			[32m<deviceName>${value}</deviceName>[m
+[32m+[m			[32m<appPackage>${value}</appPackage>[m
+[32m+[m			[32m<appActivity>${value}</appActivity>[m
+[32m+[m			[32m<aPKFilePath>${value}</aPKFilePath>[m
+[32m+[m			[32m<driverURL>${value}</driverURL>[m
+[32m+[m			[32m<UDID>${value}</UDID>[m
+           </systemPropertyVariables>[m
+         </configuration>[m
+       </plugin>[m
+         [m
+     </plugins>[m
+   </build>[m
+[32m+[m[41m  [m
+   <dependencies>[m
+   [m
+   <dependency>[m
+ 	<groupId>junit</groupId>[m
+ 	<artifactId>junit</artifactId>[m
+ 	<version>4.12</version>[m
+[31m-</dependency>[m
+[32m+[m[32m </dependency>[m
+ [m
+[31m-<dependency>[m
+[32m+[m[32m <dependency>[m
+ 	<groupId>io.appium</groupId>[m
+ 	<artifactId>java-client</artifactId>[m
+ 	<version>3.4.0</version>[m
+ </dependency>[m
+ [m
+[31m-<dependency>[m
+[32m+[m[32m <dependency>[m
+ 	<groupId>org.seleniumhq.selenium</groupId>[m
+ 	<artifactId>selenium-server</artifactId>[m
+ 	<version>2.53.0</version>[m
+[31m-</dependency>[m
+[32m+[m[32m </dependency>[m
+ 	[m
+[31m-  	<dependency>[m
+[31m-  		<groupId>org.apache.poi</groupId>[m
+[31m-  		<artifactId>poi</artifactId>[m
+[31m-  		<version>3.12</version>[m
+[31m-  	</dependency>[m
+[32m+[m[32m  <dependency>[m
+[32m+[m[41m  [m	[32m<groupId>org.apache.poi</groupId>[m
+[32m+[m[41m  [m	[32m  <artifactId>poi</artifactId>[m
+[32m+[m[41m  [m	[32m<version>3.12</version>[m
+[32m+[m[32m  </dependency>[m
+   	[m
+[31m-  		<dependency>[m
+[31m-        <groupId>org.apache.poi</groupId>[m
+[32m+[m[32m  <dependency>[m
+[32m+[m[32m      <groupId>org.apache.poi</groupId>[m
+         <artifactId>poi-ooxml</artifactId>[m
+[31m-        <version>3.12</version>[m
+[31m-	</dependency>[m
+[32m+[m[32m       <version>3.12</version>[m
+[32m+[m[32m  </dependency>[m
+ 	[m
+ 	<dependency>[m
+ 	<groupId>com.googlecode.json-simple</groupId>[m
+[36m@@ -69,6 +74,6 @@[m
+       <scope>compile</scope>[m
+     </dependency>[m
+ 	[m
+[31m-	[m
+   </dependencies>[m
+[32m+[m[41m  [m
+ </project>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/test/java/test/MyUnitTestCase.java b/src/test/java/test/MyUnitTestCase.java[m
+[1mindex 4a65f4c..354c62e 100644[m
+[1m--- a/src/test/java/test/MyUnitTestCase.java[m
+[1m+++ b/src/test/java/test/MyUnitTestCase.java[m
+[36m@@ -38,7 +38,7 @@[m [mpublic class MyUnitTestCase[m
+     }[m
+ 	[m
+ 	[m
+[31m-	@Test[m
+[32m+[m	[32m@Ignore[m
+ 	public void testGetProfile() throws Exception {[m
+ 		[m
+ 		String one = System.getProperty("one");[m
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory.

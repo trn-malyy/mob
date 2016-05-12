@@ -38,7 +38,7 @@ public class MyUnitTestCase
     }
 	
 	
-	@Test
+	@Ignore
 	public void testGetProfile() throws Exception {
 		
 		String one = System.getProperty("one");
