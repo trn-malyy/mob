@@ -2,10 +2,13 @@ package test;
 
 import static org.junit.Assert.assertTrue;
 
+
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.AfterClass;
 import org.junit.Test;
+import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.android.AndroidDriver;
 import utils.AndroidDevice;
@@ -20,14 +23,6 @@ public class mySecondUnitTest {
 	 String aPKFilePath;
 	 String driverURL;
 	 String UDID;
-	
-	
-	
-	
-	
-	
-	
-		
 		
 		@Test
 	    public void secondUnitTestGotCalled()
@@ -36,7 +31,7 @@ public class mySecondUnitTest {
 	    }
 				
 		@Test
-		public void emulatorDriver() throws MalformedURLException{
+		public void emulatorDriver() throws MalformedURLException, InterruptedException{
 			
 			platformName = System.getProperty("platformName");
 			platformVersion = System.getProperty("platformVersion");
@@ -49,7 +44,7 @@ public class mySecondUnitTest {
 	
 			
 			//AndroidDevice DeviceObject = new AndroidDevice("Android","6.1","Android Emulator","com.blueshieldca.prod","com.blueshieldca.prod.MemberMobile",
-				//	"C:\\Users\\smelyy01\\Desktop\\signed\\BlueShield 3.9.apk","http://127.0.0.1:10160/wd/hub","");
+				//	"C:\\app\\signed\\BS.apk","http://127.0.0.1:10160/wd/hub","");
 			
 			AndroidDevice DeviceObject = new AndroidDevice(platformName,platformVersion,deviceName,appPackage,appActivity,
 					aPKFilePath,driverURL,"");
@@ -59,12 +54,48 @@ public class mySecondUnitTest {
 			AndroidDriver driver = DeviceObject.createDeviceObject();
 			
 	        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+	        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 	        // click on find a provider text
 	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"FIND A PROVIDER\")").click();
 	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			
-			
+	       
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Continue as Guest\")").click();
+	        Thread.sleep(5000);
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	       
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Doctor\")").click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	       
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"All Plans\")").click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	       
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Access+ HMO\")").click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"All Types\")").click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	        
+	        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"General Medicine\")").click();
+	        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	        	        
+	        Dimension dimensions = driver.manage().window().getSize();
+	        Double screenHeightStart = dimensions.getHeight() * 0.5;
+	        int scrollStart = screenHeightStart.intValue();
+	        System.out.println("screen top="+scrollStart);
+	        
+	        Double screenHeightEnd = dimensions.getHeight() * 0.2;
+	        int scrollEnd = screenHeightEnd.intValue();
+	        System.out.println("screen bottom="+scrollEnd);
+	        
+	        
+	        Thread.sleep(500);
+	        driver.quit();
+	
 			
 		}
+		
+		
+
 
 }

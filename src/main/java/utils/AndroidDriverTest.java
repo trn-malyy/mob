@@ -14,7 +14,7 @@ public class AndroidDriverTest {
 	private static void deviceDriver() throws MalformedURLException{
 		
 		AndroidDevice DeviceObject = new AndroidDevice("Android","5.1.1","Galaxy S6 edge","com.blueshieldca.prod","com.blueshieldca.prod.MemberMobile",
-				"C:\\Users\\smelyy01\\Desktop\\signed\\BlueShield 3.9.apk","http://127.0.0.1:10160/wd/hub","");
+				"C:\\app\\signed\\BS.apk","http://127.0.0.1:10160/wd/hub","");
 				
 		AndroidDriver driver = DeviceObject.createDeviceObject();
 		
@@ -28,7 +28,7 @@ public class AndroidDriverTest {
 	private static void emulatorDriver() throws MalformedURLException{
 		
 		AndroidDevice DeviceObject = new AndroidDevice("Android","6.1","Android Emulator","com.blueshieldca.prod","com.blueshieldca.prod.MemberMobile",
-				"C:\\Users\\smelyy01\\Desktop\\signed\\BlueShield 3.9.apk","http://127.0.0.1:10160/wd/hub","");
+				"C:\\app\\signed\\BS.apk","http://127.0.0.1:10160/wd/hub","");
 		
 		AndroidDriver driver = DeviceObject.createDeviceObject();
 		
@@ -44,7 +44,7 @@ public class AndroidDriverTest {
 	public static void main (String[] args) throws MalformedURLException{
 		
 		//deviceDriver();
-		emulatorDriver();
+	//	emulatorDriver();
 		
 	
 	}
