@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.AfterClass;
+//import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.Dimension;
 
